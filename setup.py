@@ -123,6 +123,16 @@ def setup_package():
             ]
         )
     )
+    extensions.append(
+        Extension(
+            "pdsa.rank.random_sampling",
+            language='c++',
+            sources=['pdsa/rank/random_sampling.pyx'],
+            include_dirs=[
+                get_python_inc(plat_specific=True),
+            ]
+        )
+    )
 
     setup(
         name="pdsa",
@@ -152,7 +162,7 @@ def setup_package():
             'Programming Language :: Python :: 3.7',
             'Topic :: Scientific/Engineering'
         ],
-        requires=["cython"]
+        install_requires=["cython>=0.28,<1.0"]
     )
 
 
